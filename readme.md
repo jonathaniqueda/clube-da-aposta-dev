@@ -7,8 +7,6 @@
 
 This is a fully responsive admin panel made with VueJS and Laravel.
 
-This project is based on [vue-admin](https://github.com/vue-bulma/vue-admin).
-
 ## Guide
 
 1. Clone the project.
