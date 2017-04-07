@@ -1,13 +1,7 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="page-header">
-                    <h1>Login</h1>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur corporis deserunt, dolorem eligendi esse eum illo illum inventore libero minus nam numquam officiis praesentium quas quasi repudiandae sed tempore voluptatibus?</p>
-            </div>
-            <div class="col-md-4">
+    <div class="container container-table">
+        <div class="row vertical-center-row">
+            <div class="col-md-6 col-md-offset-3 col-xs-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">Login</div>
                     <div class="panel-body">
@@ -29,3 +23,16 @@
         }
     }
 </script>
+
+<style lang="scss">
+    html, body, .container-table {
+        height: 100%;
+    }
+    .container-table {
+        display: table;
+    }
+    .vertical-center-row {
+        display: table-cell;
+        vertical-align: middle;
+    }
+</style>

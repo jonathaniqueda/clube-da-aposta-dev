@@ -9,7 +9,7 @@ window.axios = axios;
 
 import router from './routes';
 import store from './store/index';
-import App from './components/App.vue';
+import Login from './components/login/Login.vue';
 import jwtToken from './helpers/jwt-token';
 
 axios.interceptors.request.use(config => {
@@ -40,9 +40,9 @@ axios.interceptors.response.use(response => {
     return Promise.reject(error);
 });
 
-Vue.component('app', App);
+Vue.component('login', Login);
 
-const app = new Vue({
+const login = new Vue({
     router,
     store
 }).$mount('#app');

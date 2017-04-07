@@ -14,7 +14,7 @@
         window.Laravel = {!! json_encode([
                 'csrfToken' => csrf_token(),
                 'siteName'  => config('app.name'),
-                'apiDomain' => config('app.url').'/api'
+                'apiDomain' => config('app.url').'/api/v1'
             ]) !!}
     </script>
 </head>
@@ -22,7 +22,7 @@
 <body>
 
 <div id="app">
-    <app></app>
+    <login></login>
 </div>
 
 <script src="{{ elixir('/js/app.js') }}"></script>

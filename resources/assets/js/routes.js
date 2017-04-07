@@ -5,7 +5,6 @@ import jwtToken from './helpers/jwt-token';
 Vue.use(VueRouter);
 
 import Store from './store/index'
-import Home from './components/home/Home.vue'
 import Login from './components/login/Login.vue'
 import ProfileWrapper from './components/profile-wrapper/ProfileWrapper.vue'
 import Profile from './components/profile/Profile.vue'
@@ -17,12 +16,6 @@ const router = new VueRouter({
     routes: [
         {
             path: '/',
-            name: 'index',
-            component: Home,
-            meta: {}
-        },
-        {
-            path: '/login',
             name: 'login',
             component: Login,
             meta: {requiresGuest: true}
@@ -65,7 +58,7 @@ router.beforeEach((to, from, next) => {
     }
     if (to.meta.requiresGuest) {
         if (Store.state.authUser.authenticated || jwtToken.getToken())
-            return next({name: 'index'});
+            return next({name: 'login'});
         else
             return next();
     }
