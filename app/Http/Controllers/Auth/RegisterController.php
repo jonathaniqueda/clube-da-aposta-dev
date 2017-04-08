@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Custom\Exception\ValidateException;
+use App\Custom\Request\RequestMessage;
+use App\Repositories\UserRepository;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Socialite;
 
 class RegisterController extends Controller
 {
@@ -27,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -42,7 +47,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -57,7 +62,7 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return User
      */
     protected function create(array $data)
@@ -65,7 +70,84 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => $data['password'],
         ]);
+    }
+
+    public function index(Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            $all = $request->all();
+
+            $validate = $this->validator($all);
+
+            if ($validate->fails()) {
+                return RequestMessage::warning($validate->errors());
+            }
+
+            $user = $this->create($all);
+            $this->guard()->login($user);
+
+            return RequestMessage::success(['route' => route('dashboard_index'), 'msg' => 'Cadastro realizado!']);
+        }
+
+        return view('auth.register');
+    }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return Response
+     */
+
+    public function redirectToProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback()
+    {
+        $userReturned = Socialite::driver('facebook')->stateless()->user();
+
+        $userRepository = new UserRepository();
+        $getUser = $userRepository->createOrGetSocialUser($userReturned);
+
+        $this->guard()->login($getUser);
+
+        return redirect()->route('dashboard_index');
+    }
+
+    public function createPassword(Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            $all = $request->all();
+
+            $validate = Validator::make($all, [
+                'password' => 'required|min:6|confirmed',
+            ]);
+
+            if ($validate->fails()) {
+                return RequestMessage::warning($validate->errors());
+            }
+
+            $email = session('email');
+            session()->forget('email');
+
+            $userRepository = new UserRepository();
+            $user = $userRepository->getUserByEmail($email);
+            $user->password = $all['password'];
+            $user->save();
+
+            $this->guard()->login($user);
+
+            return RequestMessage::success(['route' => route('dashboard_index')]);
+        }
+
+        return view('auth.register_pass');
     }
 }

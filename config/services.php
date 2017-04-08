@@ -35,4 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => '1314645535279328',
+        'client_secret' => 'd6582bb116e6f886ed1016b4deec27f8',
+        'redirect' => getenv('APP_URL') . '/social/facebook/autorizado',
+    ],
 ];
