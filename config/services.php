@@ -37,7 +37,7 @@ return [
 
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID', '1532680120084494'),
-        'client_secret' => env('FACEBOOK_CLIENT_ID', '6369ca816d341351b80bc298f23494d8'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET', '6369ca816d341351b80bc298f23494d8'),
         'redirect' => getenv('APP_URL') . '/social/facebook/autorizado',
     ],
 ];
