@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Jonathan Iqueda">
     <meta name="description" content="Teste de dev para o Clube da Aposta">
+    <link rel="shortcut icon"
+          href="http://www.clubedaposta.com/novo-site/wp-content/themes/clubedaposta/images/cache/f59477ec0d15ed128c30bdd59d37dad2.png"
+          type="image/x-icon"/>
+
 
     <title>{{ config('app.name') }}</title>
 

@@ -11,4 +11,11 @@ class IndexController extends Controller
     {
         return view('dashboard.index');
     }
+
+    public function logoutUser()
+    {
+        \Auth::logout();
+        \Session::flush();
+        return redirect()->to('/');
+    }
 }

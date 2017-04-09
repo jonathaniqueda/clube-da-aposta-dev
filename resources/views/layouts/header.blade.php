@@ -80,6 +80,14 @@
 
                     </li>
 
+                    <li class="color-nav">
+                        <a href="{{route('login_logout')}}">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            Sair
+                        </a>
+
+                    </li>
+
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
