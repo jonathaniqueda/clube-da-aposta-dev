@@ -5,12 +5,12 @@
         <div class="container">
 
             <div class="page-header">
-                <h3>Campeonatos
-                    <a href="{{route('championship_create')}}" class="btn btn-success pull-right">Cadastrar Novo</a>
+                <h3>Times
+                    <a href="{{route('teams_create')}}" class="btn btn-success pull-right">Cadastrar Novo</a>
                 </h3>
             </div>
 
-            @if(!$championships->isEmpty())
+            @if(!$teams->isEmpty())
                 <table class="table">
                     <thead>
                     <tr>
@@ -19,19 +19,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($championships as $championship)
+                    @foreach($teams as $team)
                         <tr>
-                            <td>{{$championship->id}}</td>
-                            <td>{{$championship->name}}</td>
+                            <td>{{$team->id}}</td>
+                            <td>{{$team->name}}</td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
 
-                @include('layouts.paginator', ['paginator' => $championships])
+                @include('layouts.paginator', ['paginator' => $teams])
             @else
-                <h4>Nenhum campeonato foi cadastrado ainda. <a href="{{route('championship_create')}}">Clique aqui</a>
-                    para cadastrar um novo campeonato.
+                <h4>Nenhum time foi cadastrado ainda. <a href="{{route('teams_create')}}">Clique aqui</a>
+                    para cadastrar um novo time.
                 </h4>
             @endif
 

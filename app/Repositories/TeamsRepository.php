@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Model\Teams;
+use App\Model\Team;
 
 class TeamsRepository
 {
@@ -11,12 +11,19 @@ class TeamsRepository
     public function __construct($id = null)
     {
         if (!empty($id)) {
-            $this->team = Teams::find($id);
+            $this->team = Team::find($id);
         }
     }
 
     public function get()
     {
         return $this->team;
+    }
+
+    public function create($data)
+    {
+        return Team::create([
+            'name' => $data['name']
+        ]);
     }
 }

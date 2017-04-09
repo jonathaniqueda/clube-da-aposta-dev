@@ -43,7 +43,7 @@
 
                     </li>
 
-                    <li class="color-nav @if(preg_match('/teams_/i', \Request::route()->getName())) active @endif">
+                    <li class="color-nav @if(preg_match('/teams_/i', \Request::route()->getName())) active toogle-collapse @endif">
                         <a href="#" data-toggle="collapse" data-target="#toggle1" data-parent="#sidenav01"
                            class="collapsed">
                             <i class="fa fa-user-plus" aria-hidden="true"></i>
@@ -61,7 +61,7 @@
 
                     </li>
 
-                    <li class="color-nav @if(preg_match('/matches_/i', \Request::route()->getName())) active @endif">
+                    <li class="color-nav @if(preg_match('/matches_/i', \Request::route()->getName())) active toogle-collapse @endif">
                         <a href="#" data-toggle="collapse" data-target="#toggle2" data-parent="#sidenav01"
                            class="collapsed">
                             <i class="fa fa-plus" aria-hidden="true"></i>
