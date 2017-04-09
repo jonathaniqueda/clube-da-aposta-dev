@@ -13,7 +13,9 @@ This is a fully responsive admin panel made with VueJS and Laravel.
 2. Run composer install.
 3. Create a file called envapp.php on base path and set:
 
- > <?php  putenv('environment=local'); ?>
+```
+<?php  putenv('environment=local'); ?>
+```
 
 4. Run npm install
 5. Create a virtual host or use laravel homestead.
