@@ -24,4 +24,6 @@ This is a fully responsive admin panel made with VueJS and Laravel.
  > npm run dev will open your default browser and run project in develop mode. You will be able to make your changes
  > npm run build will package your source code into /dist directory for production deployment.
 
-7. Implement your logical :D
+7. Look for the env variables on env files inside "envvars/" and create the databases for current env.
+
+8. Finish!
