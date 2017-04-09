@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        \Validator::extend('invalid_team_selected', function ($attribute, $value, $parameters, $validator) {
+            $data = $validator->getData();
+            return $value != $data['team_b_id'];
+        });
     }
 
     /**

@@ -16,7 +16,11 @@
     "lodash": "^4.17.4",
     "vue": "^2.1.10",
     "vue-router": "^2.3.0",
-    "vuex": "^2.2.1",
+    "vuex": "^2.2.1"
+  },
+  "dependencies": {
+    "bootstrap-datepicker": "^1.6.4",
+    "js-autocomplete": "^1.0.4",
     "sweetalert": "^1.1.3"
   }
 }

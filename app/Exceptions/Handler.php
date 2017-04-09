@@ -47,9 +47,9 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         //Caso queira uma validação de exceção respondida em JSON - otima para requisições AJAX
-//        if (getenv('APP_ENV') == 'local') {
-//            return parent::render($request, $exception);
-//        }
+        if (getenv('APP_ENV') == 'local') {
+            return parent::render($request, $exception);
+        }
 
         \Log::critical($exception->getMessage());
 

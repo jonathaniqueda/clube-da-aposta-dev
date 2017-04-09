@@ -1,7 +1,6 @@
 <?php
 
-Route::group(['middleware' => 'jwt.auth'], function () {
-    Route::get('user', 'UserController@show');
-    Route::post('user/profile/update', 'UserController@updateProfile');
-    Route::post('user/password/update', 'UserController@updatePassword');
+Route::group(['prefix' => 'api/v1', 'namespace' => 'Api'], function () {
+    Route::get('search', 'SearchController@find')->name('elastic_search');
+    Route::get('search-teams-by-champs/{champsId}', 'SearchController@getTeamsByChamp')->name('get_team_by_champs');
 });

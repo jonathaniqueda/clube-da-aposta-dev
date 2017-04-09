@@ -98,8 +98,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'team_a_id' => [
+            'invalid_team_selected' => 'O time da casa não pode ser o mesmo time de fora.',
         ],
     ],
 

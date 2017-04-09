@@ -16,6 +16,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Nome</th>
+                        <th>Editar Campeonatos Associados</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -23,6 +24,15 @@
                         <tr>
                             <td>{{$team->id}}</td>
                             <td>{{$team->name}}</td>
+                            <td>
+                                @if(!$team->championship->isEmpty())
+                                    <a href="{{route('teams_remove_associated', ['id' => $team->id])}}">
+                                        <span class="fa fa-edit fa-2x"></span>
+                                    </a>
+                                @else
+                                    O {{$team->name}} não está em nenhum campeonato
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

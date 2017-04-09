@@ -56,6 +56,7 @@
                             <ul class="nav nav-list">
                                 <li><a href="{{route('teams_index')}}">Visualizar</a></li>
                                 <li><a href="{{route('teams_create')}}">Cadastrar</a></li>
+                                <li><a href="{{route('teams_associated')}}">Associar Campeonato</a></li>
                             </ul>
                         </div>
 

@@ -24,6 +24,8 @@ Route::group(['namespace' => 'Dashboard', 'prefix' => 'dashboard', 'middleware' 
     Route::group(['prefix' => 'times'], function () {
         Route::get('/', 'TeamsController@index')->name('teams_index');
         Route::match(['get', 'post'], '/cadastrar', 'TeamsController@create')->name('teams_create');
+        Route::match(['get', 'post'], '/associar', 'TeamsController@associate')->name('teams_associated');
+        Route::match(['get', 'post'], '/remover-campeonato/{id}', 'TeamsController@removeChamp')->name('teams_remove_associated');
     });
 
     Route::group(['prefix' => 'jogos'], function () {

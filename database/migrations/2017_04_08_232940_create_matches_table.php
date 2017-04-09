@@ -24,7 +24,7 @@ class CreateMatchesTable extends Migration
             $table->integer('team_a_goals');
             $table->integer('team_b_goals');
 
-            $table->integer('team_win_id')->unsigned();
+            $table->integer('team_win_id')->unsigned()->nullable()->default(NULL);
             $table->foreign('team_win_id')->references('id')->on('teams');
 
             $table->timestamps();
