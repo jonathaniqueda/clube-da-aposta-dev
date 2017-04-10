@@ -20,6 +20,5 @@
         </p>
         <a class="btn btn-sm btn-white btn-block" href="{{route('login_create')}}">Clique aqui e cadastre-se</a>
     </form>
-    </div>
 
 @endsection

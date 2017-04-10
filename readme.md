@@ -5,7 +5,7 @@
 
 ## About Project
 
-This is a fully responsive admin panel made with VueJS and Laravel.
+This is a fully responsive admin panel made with Laravel + Bootstrap 3
 
 ## Guide
 
