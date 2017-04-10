@@ -17,16 +17,32 @@ class UserRepository
         }
     }
 
+    /**
+     * Method to return the instance of User.
+     *
+     * @return User
+     */
     public function getUser()
     {
         return $this->user;
     }
 
+    /**
+     * Method to return the instance of User by email.
+     *
+     * @return User
+     */
     public function getUserByEmail($email)
     {
         return User::where('email', '=', $email)->first();
     }
 
+
+    /**
+     * Method to create or get User infos.
+     *
+     * @return User
+     */
     public function createOrGetSocialUser(ProviderUser $providerUser)
     {
         $account = SocialAccounts::where('provider', '=', 'facebook')

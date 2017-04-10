@@ -11,6 +11,11 @@ namespace App\Custom\Helper;
 
 class EnvironmentStatic
 {
+    /**
+     * Return current environment.
+     *
+     * @return string
+     */
     public static function getEnv()
     {
         if (!file_exists(base_path('envapp.php'))) {

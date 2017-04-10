@@ -16,11 +16,22 @@ class ChampionshipRepository
         }
     }
 
+    /**
+     * Method to return the instance of Championship.
+     *
+     * @return Championship
+     */
     public function get()
     {
         return $this->championship;
     }
 
+    /**
+     * Method to create the instance of Championship.
+     *
+     * @var array $data
+     * @return Championship
+     */
     public function create($data)
     {
         return Championship::create([
@@ -28,6 +39,12 @@ class ChampionshipRepository
         ]);
     }
 
+    /**
+     * Method to return a rank for championship
+     *
+     * @var array $data
+     * @return array or null
+     */
     public function rank($data)
     {
         $results = Championship::getWinPointsByTeams($data);

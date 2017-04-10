@@ -17,11 +17,22 @@ class MatchesRepository
         }
     }
 
+    /**
+     * Method to return the instance of Match.
+     *
+     * @return Match
+     */
     public function get()
     {
         return $this->match;
     }
 
+    /**
+     * Method to create and return the instance of Match.
+     *
+     * @var array $data
+     * @return Match
+     */
     public function create($data)
     {
         $date = Carbon::createFromFormat('d/m/Y', $data['match_day'])->toDateString();

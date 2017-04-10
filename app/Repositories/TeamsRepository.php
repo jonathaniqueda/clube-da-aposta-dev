@@ -16,11 +16,22 @@ class TeamsRepository
         }
     }
 
+    /**
+     * Method to return the instance of Team.
+     *
+     * @return Team
+     */
     public function get()
     {
         return $this->team;
     }
 
+    /**
+     * Method to create and return the instance of Team.
+     *
+     * @var array $data
+     * @return Team
+     */
     public function create($data)
     {
         return Team::create([
@@ -28,6 +39,12 @@ class TeamsRepository
         ]);
     }
 
+    /**
+     * Method to associate team to championship.
+     *
+     * @var array $data
+     * @return boolean
+     */
     public function associate($data)
     {
         $team = Team::where('name', $data['team'])->first();
@@ -49,12 +66,17 @@ class TeamsRepository
         return true;
     }
 
+    /**
+     * Method to detach team to championship.
+     *
+     * @var array $data
+     * @return boolean
+     */
     public function detachChamp($data, $id)
     {
         $team = Team::find($id);
         $team->championship()->detach($data['championship_id']);
 
         return true;
-
     }
 }
